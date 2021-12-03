@@ -13,19 +13,6 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   var selectedCard = 'WEIGHT';
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter(){
-    setState(() {
-      _counter--;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +119,8 @@ class _DetailsPageState extends State<DetailsPage> {
                                   ),
                                 ),
                               ),
-                              Text('$_counter',
-                                  style: const TextStyle(
+                              const Text('2',
+                                  style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Montserrat',
                                       fontSize: 15.0)),
@@ -145,7 +132,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(7.0),
                                       color: Colors.white),
-                                  child: const Center(
+                                  child: Center(
                                     child: Icon(
                                       Icons.add,
                                       color: Color(0xFF7A9BEE),
