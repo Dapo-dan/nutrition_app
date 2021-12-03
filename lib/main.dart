@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:nutrition_app/screens/detailsPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 45.0),
                   child: Container(
-                    height: MediaQuery.of(context).size.height - 300.0,
+                    height: MediaQuery.of(context).size.height - 400.0,
                     child: ListView(
                       children: [
                         _buildFoodItem('assets/plate1.png', 'Salmon bowl', '\$24.00'),
@@ -145,13 +145,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: const Center(
-                        child: Icon(Icons.search, color: Colors.grey,),
-                      ),
+                        child: Icon(Icons.shopping_basket, color: Colors.grey,),
+                      ) ,
                     ),
                     Container(
                       height: 65.0,
-                      width: 60.0,
+                      width: 120.0,
                       decoration: BoxDecoration(
+                        color: Colors.black,
                         border: Border.all(
                             color: Colors.grey,
                             style: BorderStyle.solid,
@@ -163,7 +164,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text('Checkout',
                           style: TextStyle(
                             color: Colors.white,
-                            backgroundColor: Colors.black,
                           ),
                         ),
                       ),
@@ -183,7 +183,9 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
       child: InkWell(
         onTap: (){
-
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => DetailsPage(heroTag: imgPath, foodName: foodName, foodPrice: price)
+          ));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -226,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             IconButton(
-              icon: Icon(Icons.add),
+              icon: const Icon(Icons.add),
               color: Colors.black,
               onPressed: () {  },
             )
