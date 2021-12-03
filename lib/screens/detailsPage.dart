@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class DetailsPage extends StatefulWidget {
   final heroTag;
   final foodName;
   final foodPrice;
+
+  int counter = 0;
+  bool isAdded = false;
 
   DetailsPage({this.heroTag, this.foodName, this.foodPrice});
 
@@ -13,6 +17,8 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   var selectedCard = 'WEIGHT';
+  late Future<List<DetailsPage>> _future;
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +138,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(7.0),
                                       color: Colors.white),
-                                  child: Center(
+                                  child: const Center(
                                     child: Icon(
                                       Icons.add,
                                       color: Color(0xFF7A9BEE),
@@ -146,32 +152,32 @@ class _DetailsPageState extends State<DetailsPage> {
                         )
                       ],
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     Container(
                         height: 150.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
                             _buildInfoCard('WEIGHT', '300', 'G'),
-                            SizedBox(width: 10.0),
+                            const SizedBox(width: 10.0),
                             _buildInfoCard('CALORIES', '267', 'CAL'),
-                            SizedBox(width: 10.0),
+                            const SizedBox(width: 10.0),
                             _buildInfoCard('VITAMINS', 'A, B6', 'VIT'),
-                            SizedBox(width: 10.0),
+                            const SizedBox(width: 10.0),
                             _buildInfoCard('AVAIL', 'NO', 'AV')
                           ],
                         )
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     Padding(
-                      padding: EdgeInsets.only(bottom:5.0),
+                      padding: const EdgeInsets.only(bottom:50.0),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0), bottomLeft: Radius.circular(25.0), bottomRight: Radius.circular(25.0)),
                             color: Colors.black
                         ),
                         height: 50.0,
-                        child: Center(
+                        child: const Center(
                           child: Text(
                               '\$52.00',
                               style: TextStyle(
